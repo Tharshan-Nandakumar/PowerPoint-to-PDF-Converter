@@ -1,4 +1,4 @@
-export const PdfIcon = () => (
+const PdfIcon = () => (
   <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd"
           d="M63 18.8571V65.2893C63 68.9955 60.0695 72 56.4545 72H15.5455C11.9305 72 9 68.9955 9 65.2893V6.71068C9 3.00447 11.9305 0 15.5455 0H45"
@@ -10,3 +10,5 @@ export const PdfIcon = () => (
           fill="white"/>
   </svg>
 )
+
+export default PdfIcon
