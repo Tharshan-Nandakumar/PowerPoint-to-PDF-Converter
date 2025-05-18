@@ -3,10 +3,19 @@ import { useDropzone } from 'react-dropzone';
 import UploadIcon from '@/icons/UploadIcon';
 
 type ChooseFileStepProps = {
+  onFileSelected: (file: File) => void
 };
 
-export const ChooseFileStep: FC<ChooseFileStepProps> = () => {
-  const { getRootProps, getInputProps } = useDropzone({
+export const ChooseFileStep: FC<ChooseFileStepProps> = ({ onFileSelected }) => {
+    const onDrop = useCallback(
+    (acceptedFiles: File[]) => { onFileSelected(acceptedFiles[0]); },
+    [onFileSelected]
+  );
+
+  const { getRootProps, getInputProps,isDragActive  } = useDropzone({
+    onDrop,
+    accept: { "application/vnd.ms-powerpoint": [], "application/vnd.openxmlformats-officedocument.presentationml.presentation": [], "application/vnd.oasis.opendocument.presentation": [] },
+    multiple: false,
   });
 
   return (
@@ -22,7 +31,7 @@ export const ChooseFileStep: FC<ChooseFileStepProps> = () => {
           </div>
         </div>
         <p className="text-sm leading-8 text-gray-600">
-          Drag and drop a PowerPoint file to convert to PDF.
+          {isDragActive ? "Drop it here…" :"Drag and drop a PowerPoint file to convert to PDF."}
         </p>
         <button
           type="button"
