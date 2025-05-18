@@ -15,13 +15,6 @@ Frontend:
 
 ## Getting Started
 
-Make sure to have the environment variables set up correctly, you can copy the values from .env.local.example with the
-following command:
-
-```bash
-cp .env.local.example .env.local
-```
-
 Install all dependencies:
 
 ```bash
